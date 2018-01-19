@@ -1,0 +1,213 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="save" content="history" />
+    <title>
+        Chart
+    </title>
+    <link id="ExactCSS" rel="stylesheet" type="text/css" href="lilac.css" />
+    <link rel="stylesheet" href="kendo/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="kendo/styles/kendo.default.min.css" />
+</head>
+
+<body>
+    <form name="Baco" method="post" action="./CSIQTChartRender.aspx" id="Baco">
+        <div>
+            <input type="hidden" name="sysFocus" id="sysFocus" value="" />
+            <input type="hidden" name="sysTab" id="sysTab" value="false" />
+            <input type="hidden" name="__securedFields" id="__securedFields" value="" />
+            <input type="hidden" name="__AntiXsrfToken" id="__AntiXsrfToken" value="50ae7bcb1a2d44c6a5f6dd3ca0f2fefe" />
+            <input type="hidden" name="__AntiXsrfUserName" id="__AntiXsrfUserName" value="ORTECADS\AndreiAM" />
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="gfcSia8GXpFxrdx/d0bayNwkoiJ4hXojQjmMG3KPFIky7Fqh3WiWQMlnCk1BqtiAII22u6ybTTI/Qys/luJyfhdUo1jznm7Ne7yDrVn45dMGv3pmlIbE5+9LApz+fdUDmib86G/13lHBPYFSsPErnh2Rw7owsu47hX4zV8n2VjQEQjWEZUn/G6KYUzkD6G0mSIBd6oPVswiniVp4K/r9g9YH8E6doQnF+M6/novps4ys1mIFNMeLoONWXknN1FF0drpMsPbgtKaaLDGIMJtx+AVLk9I="
+            />
+        </div>
+
+        <script type="text/javascript">
+            var sbu = 'Home.aspx';
+
+            function GetSysBackUrl() {
+                return sbu;
+            }
+        </script>
+        <script src="MicrosoftAjax.debug.js" type="text/javascript"></script>
+        <script src="jquery.debug.js" type="text/javascript"></script>
+        <script src="jquery-ui.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="jquery-ui.css" />
+        <script type="text/javascript">
+            //<![CDATA[
+            Sys.Application.initialize(); //]]>
+        </script>
+        <script type="text/javascript">
+            //<![CDATA[
+
+            function SysUserName() {
+                return 'AndreiAM';
+            }
+
+            function SysUserFullName() {
+                return 'Andrei-Alexandru Marin';
+            }
+
+            function SysTimeFormat(expr) {
+                var h = parseInt(expr.substr(0, 2), 10);
+                var m = expr.substr(3, 2);
+                var daypart = '';
+                return (expr.substr(0, 5))
+
+            }
+
+            function SysDateFormat(expr) {
+                var sdate = expr.getDate();
+                if (sdate.toString(10).length == 1) sdate = '0' + sdate;
+                var smonth = expr.getMonth() + 1;
+                if (smonth.toString(10).length == 1) smonth = '0' + smonth;
+                var syear = expr.getFullYear();
+                return (sdate + '-' + smonth + '-' + syear);
+            }
+            var sysFormatNegative = 1;
+            var sysFormatSep = ',';
+            var sysFormatDecSep = '.';
+            var sysFormatDateSep = '-';
+            var sysFormatDate = '1';
+            var sysDateMask = '99-99-9999';
+
+            //]]>
+        </script>
+        <script type="text/javascript" src="SysComponents.jQuery.js"></script>
+        <script type="text/javascript" src="SysControlsPopup.jQuery.js"></script>
+        <script type="text/javascript" src="SysControls.jQuery.js"></script>
+        <script type="text/javascript" src="SysGrid.jQuery.js"></script>
+        <script type="text/javascript" src="SysHelp.jQuery.js"></script>
+        <script type="text/vbscript" src="SysOutlook.vbs"></script>
+        <script type="text/javascript" src="NameControl.js"></script>
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="jquery-ui.min.js"></script>
+        <script type="text/javascript" src="SysInlineSVG.js"></script>
+        <script type="text/javascript">
+            sysDefaultEnter = 'btnRefresh'
+        </script>
+        <script type="text/javascript">
+            sysButtonClose = 'btnClose'
+        </script>
+        <script type="text/javascript">
+            //<![CDATA[
+            $addHandler(window, 'load', function(event) {
+                try {
+                    __MoveSecuredFields();
+                } catch (ex) {};
+                SysInjectPolyfills();
+                try {
+                    document.title = 'Exact Synergy Enterprise - Chart'
+                } catch (ex) {};
+                try {
+                    SysDefaultFocus();
+                } catch (ex) {};
+            });
+
+            $(document).ready(function(event) {
+                $addHandler(window, 'beforeunload', function(event) {
+                    try {
+                        return SysDirtyBeforeUnload(event, 'Your changes will not be saved.');
+                    } catch (ex) {};
+                });
+
+                $addHandler(document, 'keydown', function(event) {
+                    SysDefaultEnter(event);
+                    SysBackUrl(event, sbu);
+                    SysKeyMenuLeft08(event);
+                });
+
+                $addHandler(document, 'keyup', function(event) {
+                    SysClickTag(event);
+                });
+
+                $addHandler(document, 'help', function(event) {
+                    SysShowHelp('Chart', 'CSIQTChartRender.aspx', 'Synergy.NET');
+                    SysCancelBubble(event);
+                });
+
+                _BindSaveCurEl(document);
+                $addHandler(window, 'beforeunload', function(event) {
+                    _UnbindSaveCurEl(document)
+                });
+            });
+            //]]>
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                if (Sys.WebForms != null && Sys.WebForms.PageRequestManager != null) {
+                    Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(beginAJAXRequestHandler);
+                }
+                $(document).ajaxSend(function(event, jqXHR, ajaxOptions) {
+                    jqXHR.setRequestHeader('__AntiXsrfToken', '50ae7bcb1a2d44c6a5f6dd3ca0f2fefe');
+                    jqXHR.setRequestHeader('__AntiXsrfUserName', 'ORTECADS\\AndreiAM');
+                });
+            });
+
+            function beginAJAXRequestHandler(sender, args) {
+                args.get_request()._headers['__AntiXsrfToken'] = '50ae7bcb1a2d44c6a5f6dd3ca0f2fefe';
+                args.get_request()._headers['__AntiXsrfUserName'] = 'ORTECADS\\AndreiAM';
+            };
+        </script>
+        <div>
+            <div id="WaitMessage" class="WaitMessage" style="opacity:0.3;filter:alpha(opacity=30);height:100%;">
+                <table>
+                    <tr>
+                        <td>
+                            <div id="WaitMessageImg"><img alt="" src="images/wait.gif" /></div>
+                            <div>
+                                <!--googleoff: all-->One moment please...
+                                <!--googleon: all-->
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="HdrTitle" id="hdr">
+                <table cellpadding="0" cellspacing="0" style="width:100%;border:0;">
+                    <tr>
+                        <td><span class="HdrTitle">&nbsp;Chart</span></td>
+                        <td style="text-align:center;width:24px;"><button type="button" class="btnHeader" id="hbCustomize" accesskey="U" title="ALT U - Customise" onclick="window.location=&#39;CSIQTChartRenderCustomize.aspx&#39;"><img src="images/Customize-s.svg"></button></td>
+                        <td style="text-align:center;width:24px;"><button type="button" class="btnHeader" id="hbFavorite" accesskey="V" title="ALT V - Favorites" onclick="SysShowFavorite(&#39;Chart&#39;, &#39;CSIQTChartRender.aspx?Fav=1&#39;)"><img src="images/favorites.svg"></button></td>
+                        <td
+                            style="text-align:center;width:24px;"><button type="button" class="btnHeader" id="hbHelp" accesskey="H" title="ALT H - Help" onclick="SysShowHelp(&#39;Chart&#39;, &#39;CSIQTChartRender.aspx&#39;, &#39;Synergy.NET&#39;)"><img src="images/help.svg"></button></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="exButtonBar">
+                <div id="btnBar">
+                    <button id="btnClose" class="exButton" type="button" onclick="SysButton(event, &#39;Home.aspx&#39;);" onmouseout="this.className='exButton'" onmouseover="this.className='exButtonOver'" onmousedown="this.className='exButtonDown'" accesskey="C" title="ALT C - Close"
+                        style="vertical-align:middle;"><img class="Icon" src="images/clear.svg" /><span>&nbsp;&nbsp;Close&nbsp;&nbsp;</span></button><button id="btnRefresh" class="exButton" type="button" onclick="SysSubmit()" onmouseout="this.className='exButton'"
+                        onmouseover="this.className='exButtonOver'" onmousedown="this.className='exButtonDown'" accesskey="R" title="ALT R - Refresh" style="vertical-align:middle;"><span>Refresh</span></button></div>
+            </div>
+
+        </div>
+        <div id="EntityChart" data-csiqt-chart="MockChart">
+
+        </div>
+
+        <div>
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="127F6196" />
+        </div>
+        <script>
+            sysPageUrl = 'CSIQTChartRender.aspx'
+        </script>
+    </form>
+
+    <script type="text/javascript" src="kendo/js/jquery.min.js"></script>
+    <script type="text/javascript" src="kendo/js/kendo.all.min.js"></script>
+    <script type="text/javascript" src="kendo/js/cultures/kendo.culture.nl-NL.min.js"></script>
+    <script type="text/javascript" src="kendo/js/jszip.min.js"></script>
+    <script type="text/javascript" src="CSIQT/js/EntityChart.js"></script>
+
+</body>
+
+</html>
+<script type="text/javascript">
+    function __MoveSecuredFields() {
+        SysSet('__securedFields', '');
+    }
+</script>

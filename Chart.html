@@ -1,0 +1,61 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="save" content="history" />
+    <title>
+        Chart
+    </title>
+    <link rel="stylesheet" href="styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="styles/kendo.default.min.css" />
+    <link rel="stylesheet" href="styles/kendo.default.mobile.min.css" />
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/kendo.all.min.js"></script>
+
+    <script type="text/javascript" src="Chart.js"></script>
+</head>
+<body>
+    <div id="chart">
+        
+    </div>
+    <script>
+        function createChart() {
+            $("#chart").kendoChart({
+                dataSource: {
+                    data: endResult,
+                    group: [{
+                        field: "Status", 
+                        agregates: [{
+                            field: "Quantity", 
+                            aggregate: "sum"
+                        }]
+                    }],
+                    aggregate:[{ field:"Quantity", aggregate:"sum"}]
+                },
+                series: [{
+                    type: "bar",
+                    //stack: true,
+                    field: "Quantity",
+                    categoryField: "Status",
+                    //aggregate: "sum"
+                },
+                //{
+                //    type: "bar",
+                //    stack: true,
+                //    field: "SalesAmount",
+                //    categoryField: "Status",
+                //    aggregate: "sum"
+                //}
+                ],
+                tooltip: {
+                    visible: true,
+                    template: " ${ series.field } - ${ value }"
+                }
+            });
+        };
+
+    $(document).ready(createChart);
+    </script>
+</body>
+</html>
