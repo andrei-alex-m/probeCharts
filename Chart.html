@@ -14,6 +14,7 @@
     <script src="js/kendo.all.min.js"></script>
 
     <script type="text/javascript" src="Chart.js"></script>
+    <script type="text/javascript" src="MOCK_DATA.js"></script>
 </head>
 <body>
     <div id="chart">
@@ -23,8 +24,8 @@
         function createChart() {
             $("#chart").kendoChart({
                 dataSource: {
-                    data: endResult,
-                    group: [{
+                    data: mock,
+/*                    group: [{
                         field: "Status", 
                         agregates: [{
                             field: "Quantity", 
@@ -32,25 +33,31 @@
                         }]
                     }],
                     aggregate:[{ field:"Quantity", aggregate:"sum"}]
+                    */
                 },
                 series: [{
-                    type: "bar",
+                    name: "Value One",
+                    type: "column",
                     //stack: true,
-                    field: "Quantity",
-                    categoryField: "Status",
+                    field: "value1",
+                    categoryField: "race",
                     //aggregate: "sum"
                 },
-                //{
-                //    type: "bar",
-                //    stack: true,
-                //    field: "SalesAmount",
-                //    categoryField: "Status",
-                //    aggregate: "sum"
-                //}
+                {
+                   name: "Value One",
+                   type: "column",
+                   stack: true,
+                   field: "value2",
+                   categoryField: "race",
+                   //aggregate: "sum"
+                }
                 ],
                 tooltip: {
                     visible: true,
-                    template: " ${ series.field } - ${ value }"
+                    template: " ${ series.name } - ${ value }"
+                },
+                legend: {
+                    position: "bottom"
                 }
             });
         };
