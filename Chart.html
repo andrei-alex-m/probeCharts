@@ -37,28 +37,38 @@
                 },
                 series: [{
                     name: "Value One",
-                    type: "column",
-                    //stack: true,
-                    field: "value1",
-                    categoryField: "race",
-                    //aggregate: "sum"
+                    type: "pie",
+                    //stack: false,
+                    field: "id",
+                    categoryField: "status",
+                    aggregate: "count"
                 },
-                {
-                   name: "Value One",
-                   type: "column",
-                   stack: true,
-                   field: "value2",
-                   categoryField: "race",
-                   //aggregate: "sum"
-                }
-                ],
+    /*            {
+                   name: "Value Two",
+                   type: "pie",
+                   stack: false,
+                   field: "id",
+                   categoryField: "countryCode",
+                   //aggregate: "count"
+                }*/],
                 tooltip: {
                     visible: true,
                     template: " ${ series.name } - ${ value }"
                 },
                 legend: {
                     position: "bottom"
-                }
+                },
+/*                pannable: {
+                    lock: "y"
+                },
+                zoomable: {
+                    mousewheel: {
+                        lock: "y"
+                    },
+                    selection: {
+                        lock: "y"
+                    }
+                }*/
             });
         };
 
