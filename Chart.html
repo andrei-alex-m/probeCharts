@@ -1,4 +1,3 @@
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -16,63 +15,90 @@
     <script type="text/javascript" src="Chart.js"></script>
     <script type="text/javascript" src="MOCK_DATA.js"></script>
 </head>
+
 <body>
-    <div id="chart">
-        
+    <div id="chart" style="height: 800px">
+
     </div>
     <script>
+        function createDataSource() {
+            return new kendo.data.DataSource({
+                data: mock,
+                schema: {
+                    model: {
+                        fields: {
+                            startDate: { type: "date" }
+                        }
+                    }
+                }
+                /*                  group: [{
+                                       field: "Status", 
+                                       agregates: [{
+                                           field: "value1", 
+                                           aggregate: "sum"
+                                       }]
+                                   }],
+                                   aggregate:[{ field:"value1", aggregate:"sum"}]
+                                   */
+            });
+        };
         function createChart() {
             $("#chart").kendoChart({
-                dataSource: {
-                    data: mock,
-/*                    group: [{
-                        field: "Status", 
-                        agregates: [{
-                            field: "Quantity", 
-                            aggregate: "sum"
-                        }]
-                    }],
-                    aggregate:[{ field:"Quantity", aggregate:"sum"}]
-                    */
-                },
+                dataSource: createDataSource(),
                 series: [{
                     name: "Value One",
-                    type: "pie",
-                    //stack: false,
-                    field: "id",
-                    categoryField: "status",
-                    aggregate: "count"
+                    type: "line",
+                    stack: false,
+                    field: "value1",
+                    categoryField: "startDate",
+                    aggregate: "avg",
+                    axis: "v1"
                 },
-    /*            {
-                   name: "Value Two",
-                   type: "pie",
-                   stack: false,
-                   field: "id",
-                   categoryField: "countryCode",
-                   //aggregate: "count"
-                }*/],
+                {
+                    name: "Value Two",
+                    type: "line",
+                    stack: false,
+                    field: "value2",
+                    categoryField: "startDate",
+                    aggregate: "avg",
+                    axis: "v2"
+                }],
                 tooltip: {
                     visible: true,
                     template: " ${ series.name } - ${ value }"
                 },
                 legend: {
+                    visible: true,
                     position: "bottom"
                 },
-/*                pannable: {
-                    lock: "y"
+                transitions: false,
+                pannable: {
+                    /* lock: "y" */
                 },
                 zoomable: {
-                    mousewheel: {
+                    /* mousewheel: {
                         lock: "y"
-                    },
-                    selection: {
-                        lock: "y"
+                    }, */
+                    selection: false
+                },
+                seriesDefaults: {
+                    missingValues: "gap",
+                    noteTextField: "race",
+                    notes: {
+                        label: {
+                            position: "inside"
+                        },
+                        position: "top"
                     }
-                }*/
+                },
+                valueAxis: [{ name: "v1" }, { name: "v2" }],
+                categoryAxis: { baseUnit: "fit" }
+
             });
         };
 
-    $(document).ready(createChart);
+        $(document).ready(createChart);
     </script>
 </body>
+
 </html>
