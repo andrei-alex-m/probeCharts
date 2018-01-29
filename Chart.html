@@ -24,14 +24,14 @@
         function createDataSource() {
             return new kendo.data.DataSource({
                 data: mock,
-                schema: {
+                /*schema: {
                     model: {
                         fields: {
                             startDate: { type: "date" }
                         }
                     }
                 }
-                /*                  group: [{
+                                  group: [{
                                        field: "Status", 
                                        agregates: [{
                                            field: "value1", 
@@ -47,22 +47,22 @@
                 dataSource: createDataSource(),
                 series: [{
                     name: "Value One",
-                    type: "line",
-                    stack: false,
+                    type: "radarArea",
+                    //stack: false,
                     field: "value1",
-                    categoryField: "startDate",
-                    aggregate: "avg",
-                    axis: "v1"
+                    //categoryField: "startDate",
+                    //aggregate: "avg",
+                    //axis: "v1" 
                 },
-                {
+                /*{
                     name: "Value Two",
-                    type: "line",
-                    stack: false,
+                    type: "radarLine",
+                    //stack: false,
                     field: "value2",
-                    categoryField: "startDate",
-                    aggregate: "avg",
-                    axis: "v2"
-                }],
+                    categoryField: "countryCode",
+                    // aggregate: "avg",
+                    //axis: "v2"
+                }*/],
                 tooltip: {
                     visible: true,
                     template: " ${ series.name } - ${ value }"
@@ -80,8 +80,8 @@
                         lock: "y"
                     }, */
                     selection: false
-                },
-                seriesDefaults: {
+                }
+/*                 seriesDefaults: {
                     missingValues: "gap",
                     noteTextField: "race",
                     notes: {
@@ -90,9 +90,9 @@
                         },
                         position: "top"
                     }
-                },
-                valueAxis: [{ name: "v1" }, { name: "v2" }],
-                categoryAxis: { baseUnit: "fit" }
+                } */,
+/*                 valueAxis: [{ name: "v1" }, { name: "v2" }],
+                categoryAxis: { baseUnit: "fit" } */
 
             });
         };
