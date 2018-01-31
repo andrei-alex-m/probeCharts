@@ -14,24 +14,28 @@
 
     <script type="text/javascript" src="Chart.js"></script>
     <script type="text/javascript" src="MOCK_DATA.js"></script>
+    <script type="text/javascript" src="MOCK_DATA-4.js"></script>
 </head>
 
 <body>
-    <div id="chart" style="height: 800px">
+    <div id="chart" style="height: 1000px">
 
     </div>
     <script>
         function createDataSource() {
             return new kendo.data.DataSource({
-                data: mock,
-                /*schema: {
+                data: mock5,
+                schema: {
                     model: {
                         fields: {
                             startDate: { type: "date" }
                         }
                     }
+                },
+                group:{
+                    field:"group"
                 }
-                                  group: [{
+                /*                  group: [{
                                        field: "Status", 
                                        agregates: [{
                                            field: "value1", 
@@ -45,27 +49,27 @@
         function createChart() {
             $("#chart").kendoChart({
                 dataSource: createDataSource(),
-                series: [{
+                series: [/*{
                     name: "Value One",
-                    type: "radarArea",
-                    //stack: false,
-                    field: "value1",
-                    //categoryField: "startDate",
-                    //aggregate: "avg",
+                    type: "area",
+                    stack: true,
+                    field: "value",
+                    categoryField: "group",
+                    aggregate: "sum",
                     //axis: "v1" 
-                },
-                /*{
+                }*/
+                {
                     name: "Value Two",
-                    type: "radarLine",
-                    //stack: false,
-                    field: "value2",
-                    categoryField: "countryCode",
-                    // aggregate: "avg",
+                    type: "scatterLine",
+                    //stack: true,
+                    xField: "X",
+                    yField: "Y",
+                    aggregate: "max",
                     //axis: "v2"
-                }*/],
+                }],
                 tooltip: {
                     visible: true,
-                    template: " ${ series.name } - ${ value }"
+                    template: " ${ series.name } - ${ dataItem.group } - ${ dataItem.value }"
                 },
                 legend: {
                     visible: true,
@@ -91,8 +95,8 @@
                         position: "top"
                     }
                 } */,
-/*                 valueAxis: [{ name: "v1" }, { name: "v2" }],
-                categoryAxis: { baseUnit: "fit" } */
+                 //valueAxis: [{ name: "v1" }, { name: "v2" }],
+                categoryAxis: { baseUnit: "fit" } 
 
             });
         };
